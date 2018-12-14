@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
+
 namespace inifile
 {
 
@@ -105,9 +106,9 @@ int IniFile::load(const string &filename)
 
     while (getline(line, fp) > 0) {
 
-        trimright(line, '\n');
-        trimright(line, '\r');
-        trim(line);
+        trimright(line, '\n');//去除\n
+        trimright(line, '\r');//去除\r
+        trim(line);//去除前面的空格
 
         if (!isComment(line)) {
             /* 针对 “value=1 #测试” 这种后面有注释的语句
@@ -564,3 +565,7 @@ void IniFile::trim(string &str)
 }
 }
 #endif
+
+
+
+
